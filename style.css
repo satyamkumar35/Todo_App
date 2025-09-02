@@ -1,0 +1,174 @@
+/* General Page Styling */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  color: #222;
+  letter-spacing: 1px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#input_task,
+#input_date,
+#input_time {
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  outline: none;
+  margin-right: 10px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+#input_task:focus,
+#input_date:focus,
+#input_time:focus {
+  border-color: #6c63ff;
+}
+
+
+#add_task {
+  padding: 10px 18px;
+  background: #6c63ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#add_task:hover {
+  background: #574fd6;
+  transform: scale(1.05);
+}
+
+.todo-container {
+  margin-top: 25px;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  background: #f9f9ff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Text */
+.todo-item span:first-child {
+  font-weight: 600;
+  color: #333;
+}
+
+.todo-item span:last-child {
+  font-size: 0.9rem;
+  color: #777;
+  margin-left: 20px;
+}
+
+/* Delete Button */
+.todo-item button {
+  padding: 6px 12px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.todo-item button:hover {
+  background: #e60000;
+}
+.todo-item.completed span {
+  text-decoration: line-through;
+  background-color: gray;
+  opacity: 0.7;
+}
+.todo-item input[type="checkbox"] {
+  margin-right: 15px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+/* 🔹 Filter Buttons */
+button {
+  padding: 6px 14px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* 🔹 Specific Colors */
+button[onclick*="filterTasks('all')"] {
+  background-color: #3498db;
+  color: white;
+}
+
+button[onclick*="filterTasks('completed')"] {
+  background-color: #27ae60;
+  color: white;
+}
+
+button[onclick*="filterTasks('pending')"] {
+  background-color: #e67e22;
+  color: white;
+}
+
+/* 🔹 Edit & Delete buttons inside todo-item */
+.todo-item button {
+  margin-left: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.todo-item button[onclick^="editTask"] {
+  background-color: #f1c40f;
+  color: black;
+}
+
+.todo-item button[onclick*="splice"] {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* 🔹 Completed Task Style */
+.todo-item.done span:first-of-type {
+  text-decoration: line-through;
+  color: gray;
+  opacity: 0.7;
+}
+
