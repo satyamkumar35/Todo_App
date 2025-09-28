@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDo Unlock</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- TensorFlow + Teachable Machine -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image"></script>
+</head>
+<body>
+  <!-- Lock screen -->
+  <div id="lock-screen">
+    <h2>Show 👍 to unlock your To-Do list</h2>
+    <div id="webcam-container"></div>
+    <p id="status">Waiting for gesture...</p>
+  </div>
+
+  <!-- To-Do app (hidden until unlocked) -->
+  <div id="todo-app" style="display:none;">
+    <h1>My ToDo List</h1>
+    <input type="text" id="input_task" placeholder="Add a new task" />
+    <input type="date" id="input_date" />
+    <input type="time" id="input_time" />
+    <button id="add_task" onclick="addtodo()">Add</button>
+
+    <div>
+      <button onclick="filterTasks('all')">All</button>
+      <button onclick="filterTasks('completed')">Completed</button>
+      <button onclick="filterTasks('pending')">Pending</button>
+    </div>
+
+    <div class="todo-container"></div>
+  </div>
+
+  <!-- Your To-Do JS -->
+  <script src="script2.js"></script>
+  <!-- Unlock logic -->
+  <script src="unlock.js"></script>
+
+  <!-- Initialize after page load -->
+  <script>
+  window.onload = () => {
+    init();
+  }
+</script>
+</body>
+</html>
